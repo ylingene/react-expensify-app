@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
-import { startRemoveExpense, editExpense } from '../actions/expenses';
+import { startRemoveExpense, startEditExpense } from '../actions/expenses';
 
 export class EditExpensePage extends React.Component {
     onSubmit = (expense) => {
-        this.props.editExpense(this.props.expense.id, expense);
+        this.props.startEditExpense(this.props.expense.id, expense);
         this.props.history.push('/');
     };
 
@@ -40,7 +40,7 @@ const mapStateToProps = (state, props) => {
 // create abstraction from component of global addExpense
 // props argument not necessary but available if needed
 const mapDispatchToProps = (dispatch, props) => ({
-    editExpense: (id, updates) => dispatch(editExpense(id, updates)),
+    startEditExpense: (id, updates) => dispatch(startEditExpense(id, updates)),
     startRemoveExpense: (data) => dispatch(startRemoveExpense(data))
 });
 
