@@ -13,6 +13,7 @@ export class AddExpensePage extends React.Component {
 
         this.props.history.push('/'); // use browser routing to redirect back to expense dashboard
         // passed in from React Router when routing from a different component
+        // registered with React Router
     };
 
     render() {
