@@ -41,13 +41,11 @@ firebase.auth().onAuthStateChanged((user) => {
             renderApp();
             // redirect if on login page
             if (history.location.pathname === '/') {
-                console.log('hello??');
                 history.push('/dashboard');
             }
         });
     }
     else {
-        console.log('here');
         store.dispatch(logout());
         renderApp();
         history.push('/'); // bring back to log in page

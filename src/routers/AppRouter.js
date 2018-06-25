@@ -8,7 +8,6 @@ import LoginPage from '../components/LoginPage';
 import NotFoundPage from '../components/NotFoundPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import Header from '../components/Header';
 
 export const history = createHistory();
 
@@ -19,7 +18,6 @@ const AppRouter = () => (
     // :id extracts value after / and saves it as that var (prop) (passed in through Router)
     <Router history={history}>
         <div>
-            <Header />
             <Switch>
                 <PublicRoute path="/" component={LoginPage} exact={true} />
                 <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
