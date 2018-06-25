@@ -39,13 +39,15 @@ firebase.auth().onAuthStateChanged((user) => {
         store.dispatch(login(user.uid));
         store.dispatch(startSetExpenses()).then(() => {
             renderApp();
+            // redirect if on login page
+            if (history.location.pathname === '/') {
+                console.log('hello??');
+                history.push('/dashboard');
+            }
         });
-        // redirect if on login page
-        if (history.location.pathname === '/') {
-            history.push('/dashboard');
-        }
     }
     else {
+        console.log('here');
         store.dispatch(logout());
         renderApp();
         history.push('/'); // bring back to log in page
